@@ -1,0 +1,27 @@
+<div style='font-size: 12px; text-align: justify;'>
+{% api %}
+<h1>{{ term }}</h1>
+<p>
+{% for index, item in api %}{% if index < 1 %}
+Hello readers, in this article you can get information about {{ term }}. Here we will discuss about <strong>{{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</strong>. 
+{% for index, item in api %}{% if index < 3 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+{% endif %}
+{% endfor %}
+
+<div class="pdftgh" align="center">
+<script type="text/javascript">
+				function iimx() {
+					var iim = document.createElement("img"); 
+					iim.setAttribute("src","http://docs.google.com/gview?url={{ item.link }}&a=bi&pagenumber=1&w=200"); 
+					document.getElementById("pdftengahs").appendChild(iim);
+				}
+				function imxLoad() { 
+					iimx(); 
+				}
+				window.onload = imxLoad;
+			</script>
+<div id="pdftengahs"></div></div>
+
+{% endif %}
+{% endfor %}
